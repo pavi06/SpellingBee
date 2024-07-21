@@ -1,0 +1,214 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+.hexagon-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  perspective: 1000px;
+  margin-left: 42%;
+}
+
+.hexagon {
+  width: 80px;
+  height: 100px;
+  background-color: #e1e1e1;
+  clip-path: polygon(50% 0%,
+      100% 25%,
+      100% 75%,
+      50% 100%,
+      0% 75%,
+      0% 25%);
+  transform: rotate(90deg);
+}
+
+.hexagon:hover {
+  cursor: pointer;
+  background-color: #d1d1d1;
+}
+
+.hexagon.scale {
+  transform: rotate(90deg) scale(0.9);
+}
+
+.buttons {
+  border: 1px solid grey;
+  border-radius: 40px;
+  padding: 10px 20px;
+  width: fit-content;
+  margin-right: 10px;
+}
+
+.buttons:hover {
+  cursor: pointer;
+}
+
+.hexagon:nth-child(1) {
+  position: absolute;
+  top: 20%;
+  left: 13%;
+}
+
+.hexagon:nth-child(2) {
+  position: absolute;
+  top: 5%;
+  left: 24%;
+}
+
+.hexagon:nth-child(3) {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+
+.hexagon:nth-child(4) {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}
+
+.hexagon:nth-child(5) {
+  position: absolute;
+  top: 65%;
+  left: 24%;
+}
+
+.hexagon:nth-child(6) {
+  position: absolute;
+  top: 50%;
+  left: 13%;
+}
+
+.hexagon:nth-child(7) {
+  position: absolute;
+  top: 35%;
+  left: 24%;
+  background-color: rgb(237, 237, 40);
+}
+
+.hexagon:nth-child(7):hover{
+  background-color: rgb(222, 222, 13);
+}
+
+.letter {
+  transform: rotate(-90deg);
+  font-weight: bolder;
+  font-size: 30px;
+  margin: auto;
+}
+
+.text {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 15px;
+  text-transform: uppercase;
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 35px;
+  border-radius: 30px;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+  background-color: rgb(237, 237, 40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+
+.tooltip {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tooltip.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.timeline {
+  position: relative;
+  width: 65%;
+  margin-left: 2%;
+  background-color: #ddd;
+  height: 3px;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 0px;
+}
+
+.dot {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  top: -4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.score {
+  position: absolute;
+  top: -10px;
+  left: 30%;
+  transform: translateX(-50%);
+  background-color: yellow;
+  color: #333;
+  padding:5px 10px;
+  border-radius: 50px;
+  font-weight: bold;
+  display: none;
+  z-index: 10;
+}
+
+.dot.active {
+  background-color: yellow;
+}
+
+.score.active {
+  display: block;
+}
+
+.phrase {
+  margin-top: 2%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  width: 20%;
+}
